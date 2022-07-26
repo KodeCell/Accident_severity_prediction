@@ -13,7 +13,7 @@ def home_page():
 @app.route('/predict', methods = ['POST','GET'])
 def predict():
     if request.method == 'POST':
-        Day_of_week = request.form['Day_of_week']
+        Day_of_week = str(request.form['Day_of_week'])
         Educational_level = int(request.form['Educational_level'])
         Vehicle_driver_relation = request.form['Vehicle_driver_relation']
         Driving_experience = int(request.form['Driving_experience'])
