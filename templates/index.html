@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Road Accident Severity Predictor</title>
+        <link rel="stylesheet" type="text/css" href="../static/styles.css">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Road Accident Severity Predictor</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web App, Built with Flask</p>
+    		</div>
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="/predict" method="POST">
+
+                               <div class="form-group">
+                 <select class="form-control chosen" name="Day_of_week" required="required">
+                   <option value="">Day of Week</option>
+                   <option value="Monday">Monday</option>
+                   <option value="Tuesday">Tuesday</option>
+                   <option value="Wednesday">Wednesday</option>
+                   <option value="Thursday">Thursday</option>
+                   <option value="Friday">Friday</option>
+                   <option value="Saturday">Saturday</option>
+                   <option value="Sunday">Sunday</option>
+                 </select>
+               </div>
+
+               <div class="form-group">
+                 <select class="form-control chosen" name="Educational_level" required="required">
+                   <option value="" selected>Level of Education</option>
+                   <option value="0">Illiterate</option>
+                   <option value="1">Writing and Reading</option>
+                   <option value="2">Elementary School</option>
+                   <option value="3">Junior High School</option>
+                   <option value="4">High School</option>
+                   <option value="5">Above High School</option>
+                   <option value="6">Other</option>
+                 </select>
+               </div>
+
+
+                                         <div class="form-group">
+                 <select class="form-control chosen" name="Type_of_vehicle" required="required">
+                   <option value="" selected>Type of vehicle</option>
+                   <option value="Automobile">Automobile</option>
+                     <option value="Public (12 seats)">Public (12 seats)</option>
+                     <option value="Public (13?45 seats)">Public (13-45 seats)</option>
+                   <option value="Public (> 45 seats)">Public (>45 seats)</option>
+                   <option value="Lorry (41?100Q)">Lorry (41-100Q)</option>
+                     <option value="Lorry (11?40Q)">Lorry (11-40Q)</option>
+                   <option value="Long lorry">Long Lorry</option>
+                   <option value="Taxi">Taxi</option>
+                   <option value="Pick up upto 10Q">Pick up (<10Q)</option>
+                   <option value="Stationwagen">StationWagon</option>
+                  <option value="Ridden horse">Ridden Horse</option>
+                     <option value="Bajaj">Bajaj</option>
+                  <option value="Turbo">Turbo</option>
+                     <option value="Motorcycle">Motorcycle</option>
+                  <option value="Special vehicle">Special Vehicle</option>
+                     <option value="Bicycle">Bi-Cycle</option>
+                     <option value="Other">Other</option>
+
+                 </select>
+               </div>
+
+
+
+              <div class="form-group">
+                 <select class="form-control chosen" name="Vehicle_driver_relation" required="required">
+                   <option value="" selected>Relaion of Driver with Vehicle</option>
+                   <option value="Employee">Employee</option>
+                   <option value="Owner">Owner</option>
+                   <option value="Other">Other</option>
+                 </select>
+               </div>
+
+                         <div class="form-group">
+                 <select class="form-control chosen" name="Service_year_of_vehicle" required="required">
+                   <option value="" selected>Service year of Vehicle</option>
+                   <option value="Below 1yr">Below 1yr</option>
+                   <option value="1-2yr">1-2yr</option>
+                   <option value="2-5yrs">2-5yr</option>
+                   <option value="5-10yrs">5-10yr</option>
+                   <option value="Above 10yr">Above 10yr</option>
+                   <option value="Other">Other</option>
+                 </select>
+               </div>
+
+                               <div class="form-group">
+                 <select class="form-control chosen" name="Area_accident_occured" required="required">
+                   <option value="" selected>Area where Accident occured</option>
+                   <option value="Residential areas">Residential Area</option>
+                   <option value="Office areas">Office Area</option>
+                   <option value="  Recreational areas">Recreational Area</option>
+                   <option value=" Industrial areas">Industrial Area</option>
+                   <option value=" Church areas">Church Area</option>
+                     <option value="  Market areas">Market Area</option>
+                     <option value="Rural village areas">Rural village Area</option>
+                     <option value=" Outside rural areas">Outside Rural Area</option>
+                     <option value=" Hospital areas">Hospital Area</option>
+                     <option value="School areas">School Area</option>
+                     <option value="Recreational areas">Recreational Area</option>
+                   <option value="Other">Other</option>
+                 </select>
+               </div>
+
+                               <div class="form-group">
+                 <select class="form-control chosen" name="Lanes_or_Medians" required="required">
+                   <option value="" selected>Lanes or Medians</option>
+                     <option value="Two-way (divided with broken lines road marking)">Two-way (divided with broken lines road marking)</option>
+                   <option value="Undivided Two way">Undivided Two way</option>
+                   <option value="Double carriageway (median)">Double carriageway (median)</option>
+                   <option value="One way">One way</option>
+                   <option value="Two-way (divided with solid lines road marking)">Two-way (divided with solid lines road marking)</option>
+                   <option value="Other">Other</option>
+                 </select>
+               </div>
+
+
+                                              <div class="form-group">
+                 <select class="form-control chosen" name="Road_allignment" required="required">
+                   <option value="" selected>Road Allignment</option>
+                   <option value="Tangent road with mild grade and flat terrain">Tangent road with mild grade and flat terrain</option>
+                     <option value="Tangent road with flat terrain">Tangent road with flat terrain</option>
+                   <option value="Escarpments">Escarpments</option>
+                   <option value="Tangent road with rolling terrain">Tangent road with rolling terrain</option>
+                   <option value="Gentle horizontal curve">Gentle horizontal curve</option>
+                   <option value="Tangent road with mountainous terrain and">Tangent road with mountainous terrain</option>
+                     <option value="Steep grade downward with mountainous terrain">Steep grade downward with mountainous terrain</option>
+                     <option value="Sharp reverse curve">Sharp reverse curve</option>
+                     <option value="Steep grade upward with mountainous terrain">Steep grade upward with mountainous terrain</option>
+                 </select>
+               </div>
+                               <div class="form-group">
+                 <select class="form-control chosen" name="Types_of_Junction" required="required">
+                   <option value="" selected>Junction Type</option>
+                     <option value="No junction">No junction</option>
+                   <option value="Y Shape">Y Shape</option>
+                   <option value="Crossing">Crossing</option>
+                   <option value="O Shape">O Shape</option>
+                   <option value="T Shape">T Shape</option>
+                   <option value="X Shape">X Shape</option>
+                   <option value="Other">Other</option>
+                 </select>
+               </div>
+
+                <div class="form-group">
+                 <select class="form-control chosen" name="Road_surface_type" required="required">
+                   <option value="" selected>Surface type of Roads</option>
+                     <option value="Asphalt roads">Asphalt Roads</option>
+                   <option value="Earth roads">Earth Roads</option>
+                   <option value="Asphalt roads with some distress">Asphalt Roads with some distress</option>
+                   <option value="Gravel roads">Gravel Roads</option>
+                     <option value="Other">Other</option>
+                 </select>
+               </div>
+
+                               <div class="form-group">
+                 <select class="form-control chosen" name="Road_surface_conditions" required="required">
+                   <option value="" selected>Conditions of Road Surface</option>
+                     <option value="Dry">Dry</option>
+                   <option value="Wet or damp">Wet or Damp</option>
+                   <option value="Snow">Snow</option>
+                   <option value="Flood over 3cm. deep">Flood over 3cm. deep</option>
+                 </select>
+               </div>
+
+               <div class="form-group">
+                 <select class="form-control chosen" name="Light_conditions" required="required">
+                   <option value="" selected>Conditions of Light</option>
+                     <option value="Daylight">Daylight</option>
+                   <option value="Darkness - lights lit">Darkness - lights lit</option>
+                   <option value="Darkness - no lighting">Darkness - no lighting</option>
+                   <option value="Darkness - lights unlit">Darkness - lights unlit</option>
+                 </select>
+               </div>
+
+               <div class="form-group">
+                 <select class="form-control chosen" name="Weather_conditions" required="required">
+                   <option value="" selected>Weather Conditions</option>
+                     <option value="Normal">Normal</option>
+                   <option value="Raining">Raining</option>
+                   <option value="Raining and Windy">Raining and Windy</option>
+                   <option value="Cloudy">Cloudy</option>
+                     <option value="Windy">Windy</option>
+                     <option value="Snow">Snow</option>
+                     <option value="Other">Other</option>
+                 </select>
+               </div>
+
+               <div class="form-group">
+                 <select class="form-control chosen" name="Type_of_collision" required="required">
+                   <option value="" selected>Collision type</option>
+                     <option value="Collision with roadside-parked vehicles">Collision with roadside-parked vehicles</option>
+                   <option value="Vehicle with vehicle collision">Vehicle with vehicle collision</option>
+                   <option value="Collision with roadside objects">Collision with roadside objects</option>
+                   <option value="Collision with animals">Collision with animals</option>
+                     <option value="Rollover">Rollover</option>
+                     <option value="Fall from vehicles">Fall from vehicles</option>
+                     <option value="Collision with pedestrians">Collision with pedestrians</option>
+                      <option value="With Train">Collision with Train</option>
+                     <option value="Other">Other</option>
+
+                 </select>
+               </div>
+
+
+                                <div class="form-group">
+                 <select class="form-control chosen" name="Vehicle_movement" required="required">
+                   <option value="" selected>What was the movement of the Vehicle</option>
+                     <option value="Going straight">Going Straight</option>
+                   <option value="U-Turn">Taking a U-Turn</option>
+                   <option value="Moving Backward">Moving Backward</option>
+                   <option value="Turnover">Turnover</option>
+                     <option value="Waiting to go">Waiting to go</option>
+                     <option value="Getting off">Getting off</option>
+                     <option value="Reversing">Reversing</option>
+                     <option value="Parked">Parked</option>
+                  <option value="Stopping">Stopping</option>
+                     <option value="Overtaking">Overtaking</option>
+                     <option value="Entering a junction">Entering a junction</option>
+                     <option value="Other">Other</option>
+                 </select>
+                </div>
+
+
+                            <div class="form-group">
+                 <select class="form-control chosen" name="Owner_of_vehicle" required="required">
+                   <option value="" selected>Owner of Vehicle</option>
+                     <option value="Owner">Owner</option>
+                   <option value="Governmental">Governmental</option>
+                     <option value="Organization">Organization</option>
+                     <option value="Other">Other</option>
+
+                 </select>
+               </div>
+
+
+
+                               <div class="form-group">
+                 <select class="form-control chosen" name="Driving_experience" required="required">
+                   <option value="" selected>Experience of Driver</option>
+                   <option value="1">No License</option>
+                   <option value="2">Below 1 Yr</option>
+                   <option value="3">1-2 yr</option>
+                   <option value="4">2-5 yr</option>
+                   <option value="5">5-10 yr</option>
+                   <option value="6">Above 10 yr</option>
+                   <option value="0">Other</option>
+                 </select>
+               </div>
+
+
+                <div class="form-group">
+                 <select class="form-control chosen" name="Number_of_vehicles_involved" required="required">
+                   <option value="" selected>Number of Vehicles involved</option>
+                     <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+                 </select>
+               </div>
+                <div class="form-group">
+                 <select class="form-control chosen" name="Number_of_casualties" required="required">
+                   <option value="" selected>Number of Casualities</option>
+                     <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                     <option value="5">5</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+                     <option value="8">8</option>
+                 </select>
+               </div>
+
+               <div class="form-group">
+                 <select class="form-control chosen" name="Casualty_severity" required="required">
+                   <option value="" selected>Severity of Casuality</option>
+                     <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                 </select>
+               </div>
+
+
+
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	</form>
+    	</div>
+
+        <!-- Footer -->
+       <div class='footer'>
+
+       </div>
+
+    </body>
+</html>
