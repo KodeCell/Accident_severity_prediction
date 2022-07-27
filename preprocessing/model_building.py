@@ -39,4 +39,4 @@ rf_tuned.fit(x_train,y_train)
 
 
 import pickle
-pickle.dump(rf_tuned,open('final_model.pickle','wb'))
+pickle.dump(rf_tuned,open('model/final_model.pickle','wb'))

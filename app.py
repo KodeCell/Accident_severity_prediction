@@ -66,9 +66,9 @@ def predict():
             except:
                 final_col.append(j)
 
-        sc = pickle.load(open('scaler.pkl', 'rb'))
+        sc = pickle.load(open('labels/scaler.pkl', 'rb'))
         input = sc.transform(np.array(final_col).reshape(1,-1))
-        model = pickle.load(open('final_model.pickle', 'rb'))
+        model = pickle.load(open('model/final_model.pickle', 'rb'))
         prediction = model.predict(np.array(input).reshape(1,-1))
 
 

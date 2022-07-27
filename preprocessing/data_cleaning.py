@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 import encoding
 import pickle
 
-raw_data = pd.read_csv('RTA Dataset.csv')
+raw_data = pd.read_csv('../Data/RTA Dataset.csv')
 import preprocessing
 
 
