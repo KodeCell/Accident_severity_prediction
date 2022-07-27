@@ -1,9 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
-import pickle
 import encoding
-from pathlib import Path
 import pickle
 
 raw_data = pd.read_csv('RTA Dataset.csv')
@@ -40,19 +38,6 @@ for columns in le_cols:
 
 
 df_cleaned = raw_data.drop(columns = ['Defect_of_vehicle','Time','hour'],axis = 1)
-
-# cols_to_scale = ['Type_of_vehicle','Area_accident_occured','Road_allignment','Types_of_Junction','Weather_conditions','Type_of_collision',
-#                 'Number_of_vehicles_involved','Vehicle_movement','Cause_of_accident']
-#
-#
-#
-# scaler = StandardScaler()
-# scaler.fit(df_cleaned[cols_to_scale])
-# df_cleaned[cols_to_scale] = scaler.transform(df_cleaned[cols_to_scale])
-#
-# pickle.dump(scaler, open('scaler.pkl', 'wb'))
-
-
 
 df_cleaned.to_csv('D:/TMLC/project_1/Data/df_cleaned.csv',index = False)
 

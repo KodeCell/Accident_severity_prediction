@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
-from collections import Counter
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 import pickle
