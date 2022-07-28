@@ -2,7 +2,7 @@ import pandas as pd
 from flask import Flask, render_template, jsonify, request
 import numpy as np
 import pickle
-model = pickle.load(open('model/final_model.pickle','rb'))
+model = pickle.load(open('./model/final_model.pickle','rb'))
 
 
 app = Flask(__name__)
@@ -55,7 +55,7 @@ def predict():
         final_col = []
         for (i, j) in zip(cols, encoding_cols):
             try:
-                path = 'D:/TMLC/project_1/labels/'
+                path = './labels/'
                 final_path = f'{path}{i}.pkl'
                 print(final_path)
                 pkl_file = open(final_path, 'rb')
@@ -66,13 +66,16 @@ def predict():
             except:
                 final_col.append(j)
 
-        sc = pickle.load(open('labels/scaler.pkl', 'rb'))
+        results = final_col
+
+        sc = pickle.load(open('./labels/scaler.pkl', 'rb'))
         input = sc.transform(np.array(final_col).reshape(1,-1))
         model = pickle.load(open('model/final_model.pickle', 'rb'))
         prediction = model.predict(np.array(input).reshape(1,-1))
 
 
-    return render_template('result.html',prediction = prediction[0])
+    # return render_template('result.html',prediction = prediction[0])
+    return render_template('result.html', prediction=results)
 
 
 if __name__ == '__main__':
