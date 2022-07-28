@@ -74,8 +74,7 @@ def predict():
         prediction = model.predict(np.array(input).reshape(1,-1))
 
 
-    # return render_template('result.html',prediction = prediction[0])
-    return render_template('result.html', prediction=results)
+    return render_template('result.html',prediction = prediction[0])
 
 
 if __name__ == '__main__':
