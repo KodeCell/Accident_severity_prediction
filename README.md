@@ -30,5 +30,5 @@ https://user-images.githubusercontent.com/66371234/181154918-d342ad96-13c6-456f-
 
 ## 👩‍💻App
 * Flask was used in this project to create an api and web application
-* The saved model was then loaded into the app which was used to predict the outout for the the information passed by the user on the web page.
+* The saved model was then loaded into the app which was used to predict the outupt for the the information passed by the user on the web page.
 * Inputs were also encoded using the saved classes of the encoder.
